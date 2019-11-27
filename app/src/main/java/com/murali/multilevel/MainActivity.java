@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * The Parent Group Names.
      */
-    String[] parent = new String[]{"MOVIES", "GAMES"}; // comment this when uncomment bottom
-    //String[] parent = new String[]{"MOVIES", "GAMES", "SERIALS"}; // example for 3 main category lists
+    //String[] parent = new String[]{"MOVIES", "GAMES"}; // comment this when uncomment bottom
+    String[] parent = new String[]{"MOVIES", "GAMES", "SERIALS"}; // example for 3 main category lists
 
     /*
     If above line is uncommented uncomment the following too:
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * The Serials Genre List.
      */
-    // String[] serials = new String[]{"Crime", "Family", "Comedy"};
+     String[] serials = new String[]{"Crime", "Family", "Comedy"};
 
 
     /**
@@ -93,12 +93,9 @@ public class MainActivity extends AppCompatActivity {
     String[] racing = new String[]{"NFS: Most Wanted", "Forza Motorsport 3", "EA: F1 2016", "Project Cars"};
 
     // serials genre list
-    /*String[] crime = new String[]{"CSI: MIAMI", "X-Files", "True Detective", "Sherlock (BBC)", "Fargo", "Person of Interest"};
-
+    String[] crime = new String[]{"CSI: MIAMI", "X-Files", "True Detective", "Sherlock (BBC)", "Fargo", "Person of Interest"};
     String[] family = new String[]{"Andy Griffith", "Full House", "The Fresh Prince of Bel-Air", "Modern Family", "Friends"};
-
     String[] comedy = new String[]{"Family Guy", "Simpsons", "The Big Bang Theory", "The Office"};
-*/
 
 
     /**
@@ -113,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Datastructure for Third level Serials.
      */
-    // LinkedHashMap<String, String[]> thirdLevelSerials = new LinkedHashMap<>();
+     LinkedHashMap<String, String[]> thirdLevelSerials = new LinkedHashMap<>();
 
 
     /**
@@ -137,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
         // second level category names (genres)
         secondLevel.add(movies);
         secondLevel.add(games);
-        // secondLevel.add(serials);
+        secondLevel.add(serials);
 
         // movies category all data
         thirdLevelMovies.put(movies[0], horror);
@@ -153,16 +150,15 @@ public class MainActivity extends AppCompatActivity {
 
 
         // serials category all data
-      /*  thirdLevelSerials.put(serials[0], crime);
+        thirdLevelSerials.put(serials[0], crime);
         thirdLevelSerials.put(serials[1], family);
         thirdLevelSerials.put(serials[2], comedy);
-*/
 
 
         // all data
         data.add(thirdLevelMovies);
         data.add(thirdLevelGames);
-        //data.add(thirdLevelSerials);
+        data.add(thirdLevelSerials);
 
 
         // expandable listview
