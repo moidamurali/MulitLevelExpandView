@@ -88,6 +88,42 @@ public class ChildLevelListAdapter extends BaseExpandableListAdapter {
             textView.setText(text);
 
         return convertView;
+
+       /* final CustomExpandableListView customELV = new CustomExpandableListView(context);
+
+        String[] headersInfo = headers;//secondLevel.get(groupPosition);
+
+
+        List<String[]> childData = thirdLevelData;//new ArrayList<>();
+        HashMap<String, String[]> secondLevelData=data.get(groupPosition);
+
+        for(String key : secondLevelData.keySet())
+        {
+
+
+            childData.add(secondLevelData.get(key));
+
+        }
+
+
+        customELV.setAdapter(new SubChildLevelListAdapter(context, headersInfo,childData));
+
+        customELV.setGroupIndicator(null);
+
+
+        customELV.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            int previousGroup = -1;
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if(groupPosition != previousGroup)
+                    customELV.collapseGroup(previousGroup);
+                previousGroup = groupPosition;
+            }
+        });
+
+
+        return customELV;*/
     }
 
     @Override

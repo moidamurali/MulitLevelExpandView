@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
      * The Parent Group Names.
      */
     //String[] parent = new String[]{"MOVIES", "GAMES"}; // comment this when uncomment bottom
-    String[] parent = new String[]{"MOVIES", "GAMES", "SERIALS"}; // example for 3 main category lists
+    String[] parentLevel = new String[]{"MOVIES", "GAMES", "SERIALS"}; // example for 3 main category lists
 
     /*
     If above line is uncommented uncomment the following too:
@@ -41,81 +41,38 @@ public class MainActivity extends AppCompatActivity {
 
      */
 
-    /**
-     * The Movies Genre List.
-     */
-
-
-    // We have two  main category. (third one is left for example addition)
+    // The Movies Genre List.
+    // We have two  main category. (third one is left for example addition) //The Games Genre List.// The Serials Genre List.
     String[] movies = new String[]{"Horror", "Action", "Thriller/Drama"};
-    /**
-     * The Games Genre List.
-     */
     String[] games = new String[]{"Fps", "Moba", "Rpg", "Racing"};
-
-    /**
-     * The Serials Genre List.
-     */
      String[] serials = new String[]{"Crime", "Family", "Comedy"};
 
-
-    /**
-     * The Horror movie list.
-     */
-    // movies category has further genres
+    // The Horror movie list.
+    // movies category has further genres // The Action Movies List. //The Thriller Movies List.
     String[] horror = new String[]{"Conjuring", "Insidious", "The Ring"};
-    /**
-     * The Action Movies List.
-     */
     String[] action = new String[]{"Jon Wick", "Die Hard", "Fast 7", "Avengers"};
-    /**
-     * The Thriller Movies List.
-     */
     String[] thriller = new String[]{"Imitation Game", "Tinker, Tailer, Soldier, Spy", "Inception", "Manchester by the Sea"};
 
-
-    /**
-     * The Fps games.
-     */
-    // games category has further genres
-    String[] fps = new String[]{"CS: GO", "Team Fortress 2", "Overwatch", "Battlefield 1", "Halo II", "Warframe"};
-    /**
-     * The Moba games.
-     */
-    String[] moba = new String[]{"Dota 2", "League of Legends", "Smite", "Strife", "Heroes of the Storm"};
-    /**
-     * The Rpg games.
-     */
-    String[] rpg = new String[]{"Witcher III", "Skyrim", "Warcraft", "Mass Effect II", "Diablo", "Dark Souls", "Last of Us"};
-    /**
-     * The Racing games.
-     */
-    String[] racing = new String[]{"NFS: Most Wanted", "Forza Motorsport 3", "EA: F1 2016", "Project Cars"};
+    // The Fps games.
+    // games category has further genres  //The Moba games.  // The Rpg games.  //The Racing games.
+    String[] fps = new String[]{"CS: GO","Overwatch", "Halo II", "Warframe"};
+    String[] moba = new String[]{"Dota 2", "League of Legends", "Smite", "Strife"};
+    String[] rpg = new String[]{"Witcher III", "Skyrim", "Warcraft", "Last of Us"};
+    String[] racing = new String[]{"NFS: Most Wanted", "Motorsport 3", "EA: F1 2016"};
 
     // serials genre list
-    String[] crime = new String[]{"CSI: MIAMI", "X-Files", "True Detective", "Sherlock (BBC)", "Fargo", "Person of Interest"};
-    String[] family = new String[]{"Andy Griffith", "Full House", "The Fresh Prince of Bel-Air", "Modern Family", "Friends"};
-    String[] comedy = new String[]{"Family Guy", "Simpsons", "The Big Bang Theory", "The Office"};
+    String[] crime = new String[]{"CSI: MIAMI", "X-Files", "Sherlock (BBC)", "Fargo"};
+    String[] family = new String[]{"Andy Griffith", "Full House", "The Fresh ", "Friends"};
+    String[] comedy = new String[]{"Family Guy", "Simpsons", "The Big Bang", "The Office"};
 
 
-    /**
-     * Datastructure for Third level movies.
-     */
+    // Datastructure for Third level movies.
     LinkedHashMap<String, String[]> thirdLevelMovies = new LinkedHashMap<>();
-    /**
-     * Datastructure for Third level games.
-     */
+    // Datastructure for Third level games.
     LinkedHashMap<String, String[]> thirdLevelGames = new LinkedHashMap<>();
-
-    /**
-     * Datastructure for Third level Serials.
-     */
+    // Datastructure for Third level Serials.
      LinkedHashMap<String, String[]> thirdLevelSerials = new LinkedHashMap<>();
-
-
-    /**
-     * The Second level.
-     */
+    //The Second level.
     List<String[]> secondLevel = new ArrayList<>();
 
 
@@ -165,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         expandableListView = (ExpandableListView) findViewById(R.id.expandible_listview);
 
         // parent adapter
-        ParentLevelListAdapter threeLevelListAdapterAdapter = new ParentLevelListAdapter(this, parent, secondLevel, data);
+        ParentLevelListAdapter threeLevelListAdapterAdapter = new ParentLevelListAdapter(this, parentLevel, secondLevel, data);
 
 
         // set adapter
