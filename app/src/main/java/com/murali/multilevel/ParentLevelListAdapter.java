@@ -13,14 +13,14 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class ThreeLevelListAdapter extends BaseExpandableListAdapter {
+public class ParentLevelListAdapter extends BaseExpandableListAdapter {
 
     String[] parentHeaders;
     List<String[]> secondLevel;
     private Context context;
     List<LinkedHashMap<String, String[]>> data;
 
-    public ThreeLevelListAdapter(Context context, String[] parentHeader, List<String[]> secondLevel, List<LinkedHashMap<String, String[]>> data) {
+    public ParentLevelListAdapter(Context context, String[] parentHeader, List<String[]> secondLevel, List<LinkedHashMap<String, String[]>> data) {
         this.context = context;
 
         this.parentHeaders = parentHeader;
@@ -83,7 +83,7 @@ public class ThreeLevelListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
-        final SecondLevelExpandableListView secondLevelELV = new SecondLevelExpandableListView(context);
+        final CustomExpandableListView secondLevelELV = new CustomExpandableListView(context);
 
         String[] headers = secondLevel.get(groupPosition);
 
@@ -101,7 +101,7 @@ public class ThreeLevelListAdapter extends BaseExpandableListAdapter {
 
 
 
-        secondLevelELV.setAdapter(new SecondLevelAdapter(context, headers,childData));
+        secondLevelELV.setAdapter(new ChildLevelAdapter(context, headers,childData));
 
         secondLevelELV.setGroupIndicator(null);
 

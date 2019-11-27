@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
         expandableListView = (ExpandableListView) findViewById(R.id.expandible_listview);
 
         // parent adapter
-        ThreeLevelListAdapter threeLevelListAdapterAdapter = new ThreeLevelListAdapter(this, parent, secondLevel, data);
+        ParentLevelListAdapter threeLevelListAdapterAdapter = new ParentLevelListAdapter(this, parent, secondLevel, data);
 
 
         // set adapter

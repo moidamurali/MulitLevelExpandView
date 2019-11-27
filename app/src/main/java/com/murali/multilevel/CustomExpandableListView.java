@@ -3,10 +3,10 @@ package com.murali.multilevel;
 import android.content.Context;
 import android.widget.ExpandableListView;
 
-public class SecondLevelExpandableListView extends ExpandableListView
+public class CustomExpandableListView extends ExpandableListView
 {
 
-        public SecondLevelExpandableListView(Context context) {
+        public CustomExpandableListView(Context context) {
 			super(context);
         }
 

@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class SecondLevelAdapter extends BaseExpandableListAdapter {
+public class ChildLevelAdapter extends BaseExpandableListAdapter {
 
     private Context context;
 
@@ -21,7 +21,7 @@ public class SecondLevelAdapter extends BaseExpandableListAdapter {
     String[] headers;
 
 
-    public SecondLevelAdapter(Context context, String[] headers, List<String[]> data) {
+    public ChildLevelAdapter(Context context, String[] headers, List<String[]> data) {
         this.context = context;
         this.data = data;
         this.headers = headers;
