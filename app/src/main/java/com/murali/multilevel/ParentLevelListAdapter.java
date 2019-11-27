@@ -83,7 +83,7 @@ public class ParentLevelListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
-        final CustomExpandableListView secondLevelELV = new CustomExpandableListView(context);
+        final CustomExpandableListView customELV = new CustomExpandableListView(context);
 
         String[] headers = secondLevel.get(groupPosition);
 
@@ -101,24 +101,24 @@ public class ParentLevelListAdapter extends BaseExpandableListAdapter {
 
 
 
-        secondLevelELV.setAdapter(new ChildLevelListAdapter(context, headers,childData));
+        customELV.setAdapter(new ChildLevelListAdapter(context, headers,childData));
 
-        secondLevelELV.setGroupIndicator(null);
+        customELV.setGroupIndicator(null);
 
 
-        secondLevelELV.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+        customELV.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             int previousGroup = -1;
 
             @Override
             public void onGroupExpand(int groupPosition) {
                 if(groupPosition != previousGroup)
-                    secondLevelELV.collapseGroup(previousGroup);
+                    customELV.collapseGroup(previousGroup);
                 previousGroup = groupPosition;
             }
         });
 
 
-        return secondLevelELV;
+        return customELV;
     }
 
     @Override
