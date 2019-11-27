@@ -5,13 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 
-public class ChildLevelListAdapter extends BaseExpandableListAdapter {
+public class SubChildLevelListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
 
@@ -21,7 +23,7 @@ public class ChildLevelListAdapter extends BaseExpandableListAdapter {
     String[] headers;
 
 
-    public ChildLevelListAdapter(Context context, String[] headers, List<String[]> data) {
+    public SubChildLevelListAdapter(Context context, String[] headers, List<String[]> data) {
         this.context = context;
         this.data = data;
         this.headers = headers;
@@ -49,8 +51,8 @@ public class ChildLevelListAdapter extends BaseExpandableListAdapter {
 
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.row_second, null);
-            TextView text = (TextView) convertView.findViewById(R.id.rowSecondText);
+            convertView = inflater.inflate(R.layout.row_fourth, null);
+            TextView text = (TextView) convertView.findViewById(R.id.rowFourthText);
             String groupText = getGroup(groupPosition).toString();
             text.setText(groupText);
 
@@ -88,33 +90,6 @@ public class ChildLevelListAdapter extends BaseExpandableListAdapter {
             textView.setText(text);
 
         return convertView;
-
-        /*final CustomExpandableListView customELV = new CustomExpandableListView(context);
-
-        String[] headersInfo = headers;//secondLevel.get(groupPosition);
-        List<String[]> childData =new ArrayList<>();
-
-        for(int i=0; i<data.size();i++)
-        {
-            childData.add(data.get(i).get(i));
-        }
-
-
-        customELV.setAdapter(new SubChildLevelListAdapter(context, headersInfo,childData));
-        customELV.setGroupIndicator(null);
-        customELV.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            int previousGroup = 0;
-
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                if(groupPosition != previousGroup)
-                    customELV.collapseGroup(previousGroup);
-                previousGroup = groupPosition;
-            }
-        });
-
-
-        return customELV;*/
     }
 
     @Override
