@@ -101,7 +101,7 @@ public class ParentLevelListAdapter extends BaseExpandableListAdapter {
 
 
 
-        secondLevelELV.setAdapter(new ChildLevelAdapter(context, headers,childData));
+        secondLevelELV.setAdapter(new ChildLevelListAdapter(context, headers,childData));
 
         secondLevelELV.setGroupIndicator(null);
 
