@@ -28,7 +28,6 @@ public class NLevelMainActivity extends AppCompatActivity {
 
     int[] colors = {Color.BLUE, Color.RED, Color.MAGENTA, Color.GRAY, Color.GREEN, Color.YELLOW};
 
-    String jsonStringList = "[{\"title\":\"Root 1\",\"children\":[{\"title\":\"Child 11\",\"children\":[{\"title\":\"Extended Child 111\",\"children\":[{\"title\":\"Super Extended Child 1111\",\"children\":[]}]},{\"title\":\"Extended Child 112\",\"children\":[]},{\"title\":\"Extended Child 113\",\"children\":[]}]},{\"title\":\"Child 12\",\"children\":[{\"title\":\"Extended Child 121\",\"children\":[]},{\"title\":\"Extended Child 122\",\"children\":[]}]},{\"title\":\"Child 13\",\"children\":[]}]},{\"title\":\"Root 2\",\"children\":[{\"title\":\"Child 21\",\"children\":[{\"title\":\"Extended Child 211\",\"children\":[]},{\"title\":\"Extended Child 212\",\"children\":[]},{\"title\":\"Extended Child 213\",\"children\":[]}]},{\"title\":\"Child 22\",\"children\":[{\"title\":\"Extended Child 221\",\"children\":[]},{\"title\":\"Extended Child 222\",\"children\":[]}]},{\"title\":\"Child 23\",\"children\":[]}]},{\"title\":\"Root 1\",\"children\":[]}]";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +43,8 @@ public class NLevelMainActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView1);
         list = new ArrayList<NLevelItem>();
         final LayoutInflater inflater = LayoutInflater.from(this);
-        nestedLoop(jsonStringList, null, inflater, 0);
+        nestedLoop(Constants.newJsonStringList, null, inflater, 0);
+        //nestedLoop(Constants.OldJsonStringList, null, inflater, 0);
 
         NLevelAdapter adapter = new NLevelAdapter(list);
         listView.setAdapter(adapter);
@@ -64,7 +64,30 @@ public class NLevelMainActivity extends AppCompatActivity {
 
         try{
 
-            JSONArray jsonArrayStringList = new JSONArray(levelList);
+            JSONObject mainObject = new JSONObject(levelList);
+            JSONObject productsObject = mainObject.getJSONObject("products");
+            JSONArray facetsArray = productsObject.getJSONArray("facets");
+            for(int val=0;val<facetsArray.length();val++){
+                JSONArray categoriesObject = facetsArray.getJSONObject(0).getJSONArray("elements");
+                for(int info =0; info<categoriesObject.length();info++){
+
+                    JSONObject mobj = categoriesObject.getJSONObject(info);
+                    int childrenSize = mobj.getJSONArray("children").length();
+                    String text = mobj.getString("text");
+                    String count =  mobj.getString("count");
+                    NLevelItem Parent = itemView(val, text + "("+ count + ")", nLevelItem, inflater, level, !(childrenSize>0));
+                    list.add(Parent);
+
+                    if(childrenSize>0){
+                        nestedLoop(mobj.getJSONArray("children").toString(), Parent, inflater, level+1);
+                    }
+
+                }
+                return;
+            }
+
+
+         /*   JSONArray jsonArrayStringList = new JSONArray(levelList);
             int length = jsonArrayStringList.length();
 
             for (int i=0; i<length; i++){
@@ -76,7 +99,7 @@ public class NLevelMainActivity extends AppCompatActivity {
                 if(childrenSize>0){
                     nestedLoop(itemObject.getJSONArray("children").toString(), Parent, inflater, level+1);
                 }
-            }
+            }*/
 
         }catch (Exception e){
 
