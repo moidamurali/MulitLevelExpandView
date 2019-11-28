@@ -5,9 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -88,22 +89,21 @@ public class ChildLevelListAdapter extends BaseExpandableListAdapter {
             textView.setText(text);
 
         return convertView;
-
-        /*final CustomExpandableListView customELV = new CustomExpandableListView(context);
+    /*    final CustomExpandableListView customELV = new CustomExpandableListView(context);
 
         String[] headersInfo = headers;//secondLevel.get(groupPosition);
         List<String[]> childData =new ArrayList<>();
 
         for(int i=0; i<data.size();i++)
         {
-            childData.add(data.get(i).get(i));
+            childData.add(data.get(i));
         }
 
 
         customELV.setAdapter(new SubChildLevelListAdapter(context, headersInfo,childData));
         customELV.setGroupIndicator(null);
         customELV.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            int previousGroup = 0;
+            int previousGroup = -1;
 
             @Override
             public void onGroupExpand(int groupPosition) {

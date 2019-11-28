@@ -2,10 +2,12 @@ package com.murali.multilevel;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ExpandableListView;
 
 import java.util.ArrayList;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -72,9 +74,11 @@ public class MainActivity extends AppCompatActivity {
     LinkedHashMap<String, String[]> thirdLevelGames = new LinkedHashMap<>();
     // Datastructure for Third level Serials.
      LinkedHashMap<String, String[]> thirdLevelSerials = new LinkedHashMap<>();
+     LinkedHashMap<String, String[]> fourthLevel = new LinkedHashMap<>();
     //The Second level.
     List<String[]> secondLevel = new ArrayList<>();
 
+    LinkedHashMap<String,LinkedHashMap<String, String[]>> finalData = new LinkedHashMap<>();
 
     /**
      * The Data.
@@ -112,10 +116,32 @@ public class MainActivity extends AppCompatActivity {
         thirdLevelSerials.put(serials[2], comedy);
 
 
+        fourthLevel.put(horror[0],crime);
+
+
         // all data
         data.add(thirdLevelMovies);
         data.add(thirdLevelGames);
         data.add(thirdLevelSerials);
+        data.add(fourthLevel);
+
+/*
+
+        for(String key : thirdLevelMovies.keySet())
+        {
+            String[] value = thirdLevelMovies.get(key);
+            fourthLevel.put(key,value);
+*/
+
+
+           /* for(int i=0;i<value.length;i++) {
+                Log.v("TextValue::", key + "::::" + value[i]);
+
+            }*/
+            //finalData.put()
+      //  }
+
+            //data.add(fourthLevel);
 
 
         // expandable listview
