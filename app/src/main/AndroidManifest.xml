@@ -12,10 +12,10 @@
 
         <!--com.murali.nlevel.NLevelMainActivity
 com.murali.newLevel.NLevelMainActivity
-
+com.murali.multilevel.MainActivity
 com.murali.customexpand.MultilevelTreeListView-->
 
-        <activity android:name="com.murali.newLevel.NLevelMainActivity">
+        <activity android:name="com.murali.multilevel.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

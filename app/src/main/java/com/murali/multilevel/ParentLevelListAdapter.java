@@ -16,7 +16,7 @@ import java.util.List;
 public class ParentLevelListAdapter extends BaseExpandableListAdapter {
 
     String[] parentHeaders;
-    List<String[]> secondLevel;
+    List<String[]> secondLevelHeader;
     private Context context;
     List<LinkedHashMap<String, String[]>> data;
 
@@ -25,7 +25,7 @@ public class ParentLevelListAdapter extends BaseExpandableListAdapter {
 
         this.parentHeaders = parentHeader;
 
-        this.secondLevel = secondLevel;
+        this.secondLevelHeader = secondLevel;
 
         this.data = data;
     }
@@ -85,7 +85,7 @@ public class ParentLevelListAdapter extends BaseExpandableListAdapter {
 
         final CustomExpandableListView customELV = new CustomExpandableListView(context);
 
-        String[] headers = secondLevel.get(groupPosition);
+        String[] headers = secondLevelHeader.get(groupPosition);
 
 
         List<String[]> childData = new ArrayList<>();

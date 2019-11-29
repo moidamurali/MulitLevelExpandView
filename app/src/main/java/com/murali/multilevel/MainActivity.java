@@ -5,9 +5,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ExpandableListView;
 
+import com.google.gson.Gson;
+import com.murali.models.FilterChild;
+import com.murali.models.FilterElements;
+import com.murali.models.FilterSerViceResponse;
+import com.murali.nlevel.Constants;
+
 import java.util.ArrayList;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -30,53 +35,12 @@ public class MainActivity extends AppCompatActivity {
      * The Parent Group Names.
      */
     //String[] parent = new String[]{"MOVIES", "GAMES"}; // comment this when uncomment bottom
-    String[] parentLevel = new String[]{"MOVIES", "GAMES", "SERIALS"}; // example for 3 main category lists
+    String[] parentLevelHeaders = new String[]{};
 
-    /*
-    If above line is uncommented uncomment the following too:
-    - serials array
-    - serials genre list
-    - Datastructure for Third level Serials.
-    - secondLevel.add(serials);
-    - serials category all data
-    - data.add(thirdLevelSerials);
-
-     */
-
-    // The Movies Genre List.
-    // We have two  main category. (third one is left for example addition) //The Games Genre List.// The Serials Genre List.
-    String[] movies = new String[]{"Horror", "Action", "Thriller/Drama"};
-    String[] games = new String[]{"Fps", "Moba", "Rpg", "Racing"};
-     String[] serials = new String[]{"Crime", "Family", "Comedy"};
-
-    // The Horror movie list.
-    // movies category has further genres // The Action Movies List. //The Thriller Movies List.
-    String[] horror = new String[]{"Conjuring", "Insidious", "The Ring"};
-    String[] action = new String[]{"Jon Wick", "Die Hard", "Fast 7", "Avengers"};
-    String[] thriller = new String[]{"Imitation Game", "Tinker, Tailer, Soldier, Spy", "Inception", "Manchester by the Sea"};
-
-    // The Fps games.
-    // games category has further genres  //The Moba games.  // The Rpg games.  //The Racing games.
-    String[] fps = new String[]{"CS: GO","Overwatch", "Halo II", "Warframe"};
-    String[] moba = new String[]{"Dota 2", "League of Legends", "Smite", "Strife"};
-    String[] rpg = new String[]{"Witcher III", "Skyrim", "Warcraft", "Last of Us"};
-    String[] racing = new String[]{"NFS: Most Wanted", "Motorsport 3", "EA: F1 2016"};
-
-    // serials genre list
-    String[] crime = new String[]{"CSI: MIAMI", "X-Files", "Sherlock (BBC)", "Fargo"};
-    String[] family = new String[]{"Andy Griffith", "Full House", "The Fresh ", "Friends"};
-    String[] comedy = new String[]{"Family Guy", "Simpsons", "The Big Bang", "The Office"};
-
-
+    //The Second level.
+    List<String[]> secondLevelHeaders = new ArrayList<>();
     // Datastructure for Third level movies.
     LinkedHashMap<String, String[]> thirdLevelMovies = new LinkedHashMap<>();
-    // Datastructure for Third level games.
-    LinkedHashMap<String, String[]> thirdLevelGames = new LinkedHashMap<>();
-    // Datastructure for Third level Serials.
-     LinkedHashMap<String, String[]> thirdLevelSerials = new LinkedHashMap<>();
-     LinkedHashMap<String, String[]> fourthLevel = new LinkedHashMap<>();
-    //The Second level.
-    List<String[]> secondLevel = new ArrayList<>();
 
     LinkedHashMap<String,LinkedHashMap<String, String[]>> finalData = new LinkedHashMap<>();
 
@@ -91,64 +55,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        // second level category names (genres)
-        secondLevel.add(movies);
-        secondLevel.add(games);
-        secondLevel.add(serials);
-
-        // movies category all data
-        thirdLevelMovies.put(movies[0], horror);
-        thirdLevelMovies.put(movies[1], action);
-        thirdLevelMovies.put(movies[2], thriller);
-
-
-        // games category all data
-        thirdLevelGames.put(games[0], fps);
-        thirdLevelGames.put(games[1], moba);
-        thirdLevelGames.put(games[2], rpg);
-        thirdLevelGames.put(games[3], racing);
-
-
-        // serials category all data
-        thirdLevelSerials.put(serials[0], crime);
-        thirdLevelSerials.put(serials[1], family);
-        thirdLevelSerials.put(serials[2], comedy);
-
-
-        fourthLevel.put(horror[0],crime);
-
-
-        // all data
-        data.add(thirdLevelMovies);
-        data.add(thirdLevelGames);
-        data.add(thirdLevelSerials);
-        data.add(fourthLevel);
-
-/*
-
-        for(String key : thirdLevelMovies.keySet())
-        {
-            String[] value = thirdLevelMovies.get(key);
-            fourthLevel.put(key,value);
-*/
-
-
-           /* for(int i=0;i<value.length;i++) {
-                Log.v("TextValue::", key + "::::" + value[i]);
-
-            }*/
-            //finalData.put()
-      //  }
-
-            //data.add(fourthLevel);
-
-
         // expandable listview
         expandableListView = (ExpandableListView) findViewById(R.id.expandible_listview);
-
+        getFilterResponse();
         // parent adapter
-        ParentLevelListAdapter threeLevelListAdapterAdapter = new ParentLevelListAdapter(this, parentLevel, secondLevel, data);
+        ParentLevelListAdapter threeLevelListAdapterAdapter = new ParentLevelListAdapter(this, parentLevelHeaders, secondLevelHeaders, data/*,getFilterResponse()*/);
 
 
         // set adapter
@@ -168,5 +79,46 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private List<FilterElements> getFilterResponse() {
+        FilterSerViceResponse responseData= null;
+        List<FilterElements> elementsList = null;
+        String response = Constants.newJsonStringList;
+        try {
+            responseData = new Gson().fromJson(response, FilterSerViceResponse.class);
+        } catch (Exception e) {
+            Log.e("", e.getMessage());
+        }
+        secondLevelHeaders = new ArrayList<>();
+        if (null != responseData) {
+            List<FilterSerViceResponse.FilterFacet> filterFacets = responseData.getProducts().getFacets();
+            for (FilterSerViceResponse.FilterFacet mFilterFacet : filterFacets){
+               if( mFilterFacet.getKey().equalsIgnoreCase("categories")){
+                   elementsList  = mFilterFacet.getElements();
+                   parentLevelHeaders = new String[elementsList.size()];
+                   for(int i=0; i<elementsList.size();i++){
+                       parentLevelHeaders[i] = elementsList.get(i).getText();
+                       List<FilterChild> child = elementsList.get(i).getChild();
+                       String[] scData = new String[child.size()];
+                       for(int c =0; c<child.size();c++){
+                           scData[c] = child.get(c).getText();
+                           List<FilterChild.SubChild> subChildList =  child.get(c).getSubChild();
+                           if(subChildList!=null && !subChildList.isEmpty()) {
+                               String[] subChildArray = new String[subChildList.size()];
+                               for (int sc = 0; sc < subChildList.size(); sc++) {
+                                   subChildArray[sc] = subChildList.get(sc).getText();
+                               }
+                               thirdLevelMovies.put(scData[c], subChildArray);
+                           }
+                       }
+                       secondLevelHeaders.add(scData);
+                   }
+                   data.add(thirdLevelMovies);
+                   return elementsList;
+               }
+            }
+        }
+        return elementsList;
     }
 }
