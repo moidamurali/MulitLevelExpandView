@@ -8,6 +8,8 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
+import com.murali.models.FilterChild;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -19,8 +21,10 @@ public class ParentLevelListAdapter extends BaseExpandableListAdapter {
     List<String[]> secondLevelHeader;
     private Context context;
     List<LinkedHashMap<String, String[]>> data;
+    LinkedHashMap<String,List<FilterChild>> finalData;
 
-    public ParentLevelListAdapter(Context context, String[] parentHeader, List<String[]> secondLevel, List<LinkedHashMap<String, String[]>> data) {
+    public ParentLevelListAdapter(Context context, String[] parentHeader, List<String[]> secondLevel, List<LinkedHashMap<String, String[]>> data,
+                                  LinkedHashMap<String,List<FilterChild>> finalData) {
         this.context = context;
 
         this.parentHeaders = parentHeader;
@@ -28,6 +32,7 @@ public class ParentLevelListAdapter extends BaseExpandableListAdapter {
         this.secondLevelHeader = secondLevel;
 
         this.data = data;
+        this.finalData = finalData;
     }
 
     @Override
@@ -84,25 +89,41 @@ public class ParentLevelListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
         final CustomExpandableListView customELV = new CustomExpandableListView(context);
+        LinkedHashMap<String, String[]> thirdLevelMovies = new LinkedHashMap<>();
 
-        String[] headers = secondLevelHeader.get(groupPosition);
+        List<FilterChild> child = finalData.get(parentHeaders[groupPosition]);
+        HashMap<String, List<FilterChild.SubChild>> subSubData = new HashMap<>();
 
+        String[] scData = new String[child.size()];
+        for(int c =0; c<child.size();c++){
 
+            scData[c] = child.get(c).getText();
+            List<FilterChild.SubChild> subChildList =  child.get(c).getSubChild();
+            subSubData.put(child.get(c).getText(), subChildList);
+            if(subChildList!=null && !subChildList.isEmpty()) {
+                String[] subChildArray = new String[subChildList.size()];
+
+                for (int sc = 0; sc < subChildList.size(); sc++) {
+                    subChildArray[sc] = subChildList.get(sc).getText();
+                }
+                thirdLevelMovies.put(scData[c], subChildArray);
+
+            }
+        }
+
+        String[] headers = scData;//secondLevelHeader.get(groupPosition);
         List<String[]> childData = new ArrayList<>();
-        HashMap<String, String[]> secondLevelData=data.get(groupPosition);
+        HashMap<String, String[]> secondLevelData= thirdLevelMovies;//data.get(groupPosition);
+
 
         for(String key : secondLevelData.keySet())
         {
-
-
             childData.add(secondLevelData.get(key));
-
         }
 
 
 
-        customELV.setAdapter(new ChildLevelListAdapter(context, headers,childData));
-
+        customELV.setAdapter(new ChildLevelListAdapter(context, headers,childData, subSubData));
         customELV.setGroupIndicator(null);
 
 

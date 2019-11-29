@@ -8,7 +8,10 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
+import com.murali.models.FilterChild;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -20,12 +23,13 @@ public class ChildLevelListAdapter extends BaseExpandableListAdapter {
     List<String[]> data;
 
     String[] headers;
+    HashMap<String, List<FilterChild.SubChild>> subSubData;
 
-
-    public ChildLevelListAdapter(Context context, String[] headers, List<String[]> data) {
+    public ChildLevelListAdapter(Context context, String[] headers, List<String[]> data, HashMap<String, List<FilterChild.SubChild>> subSubData) {
         this.context = context;
         this.data = data;
         this.headers = headers;
+        this.subSubData = subSubData;
     }
 
     @Override
@@ -82,11 +86,21 @@ public class ChildLevelListAdapter extends BaseExpandableListAdapter {
 
             TextView textView = (TextView) convertView.findViewById(R.id.rowThirdText);
 
-            String[] childArray=data.get(groupPosition);
+            for(int j=0; j<headers.length;j++){
+                List<FilterChild.SubChild> subChild =  subSubData.get(headers[j]);
+
+                if(subChild!=null && subChild.isEmpty()) {
+                    for (int k = 0; k < subChild.size(); k++) {
+                        textView.setText(subChild.get(k).getText());
+                    }
+                }
+            }
+
+           /* String[] childArray=data.get(groupPosition);
 
             String text = childArray[childPosition];
 
-            textView.setText(text);
+            textView.setText(text);*/
 
         return convertView;
     /*    final CustomExpandableListView customELV = new CustomExpandableListView(context);
@@ -119,10 +133,10 @@ public class ChildLevelListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        String[] children = data.get(groupPosition);
+        //String[] children = data.get(groupPosition);
 
 
-        return children.length;
+        return data.size();//children.length;
     }
 
     @Override

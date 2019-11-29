@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     // Datastructure for Third level movies.
     LinkedHashMap<String, String[]> thirdLevelMovies = new LinkedHashMap<>();
 
-    LinkedHashMap<String,LinkedHashMap<String, String[]>> finalData = new LinkedHashMap<>();
+    LinkedHashMap<String,List<FilterChild>> finalData = new LinkedHashMap<>();
 
     /**
      * The Data.
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         expandableListView = (ExpandableListView) findViewById(R.id.expandible_listview);
         getFilterResponse();
         // parent adapter
-        ParentLevelListAdapter threeLevelListAdapterAdapter = new ParentLevelListAdapter(this, parentLevelHeaders, secondLevelHeaders, data/*,getFilterResponse()*/);
+        ParentLevelListAdapter threeLevelListAdapterAdapter = new ParentLevelListAdapter(this, parentLevelHeaders, secondLevelHeaders, data, finalData);
 
 
         // set adapter
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private List<FilterElements> getFilterResponse() {
+    private void getFilterResponse() {
         FilterSerViceResponse responseData= null;
         List<FilterElements> elementsList = null;
         String response = Constants.newJsonStringList;
@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
                    parentLevelHeaders = new String[elementsList.size()];
                    for(int i=0; i<elementsList.size();i++){
                        parentLevelHeaders[i] = elementsList.get(i).getText();
+                       finalData.put(elementsList.get(i).getText(),elementsList.get(i).getChild());
                        List<FilterChild> child = elementsList.get(i).getChild();
                        String[] scData = new String[child.size()];
                        for(int c =0; c<child.size();c++){
@@ -115,10 +116,9 @@ public class MainActivity extends AppCompatActivity {
                        secondLevelHeaders.add(scData);
                    }
                    data.add(thirdLevelMovies);
-                   return elementsList;
+                   return;
                }
             }
         }
-        return elementsList;
     }
 }
