@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style parent="@android:attr/listViewStyle" name="treeViewListStyle">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:divider">@drawable/divider</item>
+    </style>
+
 </resources>

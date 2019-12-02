@@ -17,19 +17,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 //https://stackoverflow.com/questions/18717155/expandablelistview-like-treeview-android/20518038
-https://codeday.me/es/qa/20190702/969528.html
+//https://codeday.me/es/qa/20190702/969528.html
 public class TreeViewActivity extends AppCompatActivity {
+    List<TreeElementInfo> elements = new ArrayList<>();
+    TreeElementInfo elementInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        TreeViewAdapter mTreeViewAdapter = new TreeViewAdapter();
+//        elementInfo = new TreeElementInfo.class;
+//        TreeViewAdapter mTreeViewAdapter = new TreeViewAdapter();
     }
 
 
         private void getFilterResponse() {
+            //elementInfo = new TreeElementInfo();
         FilterSerViceResponse responseData= null;
         List<FilterElements> elementsList = null;
         String response = Constants.newJsonStringList;

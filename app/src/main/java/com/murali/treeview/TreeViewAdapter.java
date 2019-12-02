@@ -1,13 +1,11 @@
 package com.murali.treeview;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -57,7 +55,7 @@ public class TreeViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
 
-        convertView = View.inflate(context, R.layout.treeview_list_item, null);
+        //convertView = View.inflate(context, R.layout.treeview_list_item, null);
         holder = new ViewHolder();
         holder.setTextView((TextView) convertView.findViewById(R.id.text));
         holder.setImageView((ImageView) convertView.findViewById(R.id.icon));
