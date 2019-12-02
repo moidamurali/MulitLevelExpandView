@@ -1,9 +1,13 @@
 package com.murali.customtree.SubTree;
 
-public class TreeAdapter extends android.widget.ArrayAdapter<TreeNode>
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+
+public class TreeAdapter extends ArrayAdapter<TreeNode>
 {
     public TreeNode[] nodes;
-    public android.view.View.OnClickListener on_click_listener;
+    public View.OnClickListener on_click_listener;
 
     public TreeAdapter(android.content.Context ctx, TreeNode[] nodes)
     {
@@ -14,7 +18,7 @@ public class TreeAdapter extends android.widget.ArrayAdapter<TreeNode>
     }
 
     @Override
-    public android.view.View getView(int idx, android.view.View view, android.view.ViewGroup parent_view)
+    public View getView(int idx, View view, ViewGroup parent_view)
     {
         android.widget.LinearLayout layout;
         android.widget.CheckBox handle;

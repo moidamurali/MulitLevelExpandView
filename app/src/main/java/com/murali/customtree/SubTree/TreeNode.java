@@ -1,5 +1,7 @@
 package com.murali.customtree.SubTree;
 
+import java.util.LinkedList;
+
 public class TreeNode {
     public boolean is_open;
     public TreeNode parent;
@@ -45,5 +47,12 @@ public class TreeNode {
             }
 
         return visible_nodes;
+    }
+
+    private LinkedList<Object> listOfChildren;
+
+
+    public LinkedList<Object> getListOfChildren() {
+        return listOfChildren;
     }
 }

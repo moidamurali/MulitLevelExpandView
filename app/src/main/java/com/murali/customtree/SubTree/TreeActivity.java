@@ -1,5 +1,7 @@
 package com.murali.customtree.SubTree;
 
+import java.util.LinkedList;
+
 public class TreeActivity
         extends android.app.Activity
         implements android.view.View.OnClickListener
@@ -50,4 +52,14 @@ public class TreeActivity
         else
             android.widget.Toast.makeText(this, n.data.toString(), android.widget.Toast.LENGTH_LONG).show();
     }
+
+   /* private void addChildren(TreeNode parent, LinkedList<MyObject> myOList) {
+        for (MyObject myO : myOList) {
+            TreeNode tn1 = new TreeNode(myO);
+            parent.addChild(tn1);
+            if (myO.getListOfChildren().size() > 0) {
+                addChildren(tn1, myO.getListOfChildren());
+            }
+        }
+    }*/
 }
