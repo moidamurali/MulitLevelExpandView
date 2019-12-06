@@ -20,7 +20,7 @@ com.murali.customtree.TreeViewActivity
 com.murali.customtree.SubTree.TreeActivity
 -->
 
-        <activity android:name="com.murali.customtree.SubTree.TreeActivity">
+        <activity android:name="com.murali.multilevel.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

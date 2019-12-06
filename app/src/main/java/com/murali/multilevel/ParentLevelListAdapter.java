@@ -20,7 +20,7 @@ public class ParentLevelListAdapter extends BaseExpandableListAdapter {
     String[] parentHeaders;
     List<String[]> secondLevelHeader;
     private Context context;
-    List<LinkedHashMap<String, String[]>> data;
+    List<LinkedHashMap<String, String[]>> secondLevelData;
     LinkedHashMap<String,List<FilterChild>> finalData;
 
     public ParentLevelListAdapter(Context context, String[] parentHeader, List<String[]> secondLevel, List<LinkedHashMap<String, String[]>> data,
@@ -31,7 +31,7 @@ public class ParentLevelListAdapter extends BaseExpandableListAdapter {
 
         this.secondLevelHeader = secondLevel;
 
-        this.data = data;
+        this.secondLevelData = data;
         this.finalData = finalData;
     }
 
@@ -113,7 +113,7 @@ public class ParentLevelListAdapter extends BaseExpandableListAdapter {
 
         String[] headers = scData;//secondLevelHeader.get(groupPosition);
         List<String[]> childData = new ArrayList<>();
-        HashMap<String, String[]> secondLevelData= thirdLevelMovies;//data.get(groupPosition);
+        HashMap<String, String[]> secondLevelData= thirdLevelMovies;//secondLevelData.get(groupPosition);
 
 
         for(String key : secondLevelData.keySet())

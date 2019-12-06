@@ -1,6 +1,7 @@
 package com.murali.multilevel;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,10 +90,15 @@ public class ChildLevelListAdapter extends BaseExpandableListAdapter {
             for(int j=0; j<headers.length;j++){
                 List<FilterChild.SubChild> subChild =  subSubData.get(headers[j]);
 
-                if(subChild!=null && subChild.isEmpty()) {
+                if(subChild!=null && !subChild.isEmpty()) {
                     for (int k = 0; k < subChild.size(); k++) {
+
                         textView.setText(subChild.get(k).getText());
+                        for(int gc=0;gc<subChild.get(k).getGrandChild().size();gc++){
+                            Log.v("Log Info:::","Header:::" + headers[j] + " ::Child::" + subChild.get(k).getText()+ " ::Grand Child::" + subChild.get(k).getGrandChild().get(gc).getText());
+                        }
                     }
+                    break;
                 }
             }
 
