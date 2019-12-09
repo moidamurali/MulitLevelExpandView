@@ -34,13 +34,12 @@ public class MainActivity extends AppCompatActivity {
     /**
      * The Parent Group Names.
      */
-    //String[] parent = new String[]{"MOVIES", "GAMES"}; // comment this when uncomment bottom
     String[] parentLevelHeaders = new String[]{};
 
     //The Second level.
     List<String[]> secondLevelHeaders = new ArrayList<>();
     // Datastructure for Third level movies.
-    LinkedHashMap<String, String[]> thirdLevelMovies = new LinkedHashMap<>();
+    LinkedHashMap<String, String[]> thirdLevelData = new LinkedHashMap<>();
 
     LinkedHashMap<String,List<FilterChild>> finalData = new LinkedHashMap<>();
 
@@ -110,12 +109,12 @@ public class MainActivity extends AppCompatActivity {
                                for (int sc = 0; sc < subChildList.size(); sc++) {
                                    subChildArray[sc] = subChildList.get(sc).getText();
                                }
-                               thirdLevelMovies.put(scData[c], subChildArray);
+                               thirdLevelData.put(scData[c], subChildArray);
                            }
                        }
                        secondLevelHeaders.add(scData);
                    }
-                   data.add(thirdLevelMovies);
+                   data.add(thirdLevelData);
                    return;
                }
             }
