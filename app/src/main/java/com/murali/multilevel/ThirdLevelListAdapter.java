@@ -48,8 +48,8 @@ public class ThirdLevelListAdapter extends BaseExpandableListAdapter {
 
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.row_fourth, null);
-            TextView text = (TextView) convertView.findViewById(R.id.rowFourthText);
+            convertView = inflater.inflate(R.layout.row_third, null);
+            TextView text = (TextView) convertView.findViewById(R.id.rowThirdText);
             String groupText = getGroup(groupPosition).toString();
             text.setText(groupText);
 
@@ -76,9 +76,9 @@ public class ThirdLevelListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.row_third, null);
+            convertView = inflater.inflate(R.layout.row_fourth, null);
 
-            TextView textView = (TextView) convertView.findViewById(R.id.rowThirdText);
+            TextView textView = (TextView) convertView.findViewById(R.id.rowFourthText);
 
             String[] childArray=data.get(groupPosition);
 

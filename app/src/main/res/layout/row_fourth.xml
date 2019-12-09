@@ -9,7 +9,7 @@
         android:id="@+id/rowFourthText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="34dp"
+        android:paddingLeft="56dp"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 </LinearLayout>
