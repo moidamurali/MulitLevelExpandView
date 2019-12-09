@@ -91,10 +91,12 @@ public class ThirdLevelListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        String[] children = data.get(groupPosition);
 
-
-        return children.length;
+        if(data == null || data.size()==0 ){
+            return 0;
+        }else {
+           return data.get(groupPosition).length;
+        }
     }
 
     @Override

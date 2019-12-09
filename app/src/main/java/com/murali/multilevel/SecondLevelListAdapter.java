@@ -81,7 +81,7 @@ public class SecondLevelListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+           /* LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.row_third, null);
 
             TextView textView = (TextView) convertView.findViewById(R.id.rowThirdText);
@@ -94,17 +94,25 @@ public class SecondLevelListAdapter extends BaseExpandableListAdapter {
                     }
             }
 
-        return convertView;
-        /*final CustomExpandableListView customELV = new CustomExpandableListView(context);
+        return convertView;*/
+        final CustomExpandableListView customELV = new CustomExpandableListView(context);
 
-        String[] headersInfo = headers;//secondLevel.get(groupPosition);
         List<String[]> childData =new ArrayList<>();
-
-        for(int i=0; i<data.size();i++)
-        {
-            childData.add(data.get(i));
+        List<FilterChild.SubChild> subChild =  subSubData.get(headers[groupPosition]);
+        String[] headersInfo = new String[subChild.size()];
+        if(subChild!=null && !subChild.isEmpty()) {
+            for (int k = 0; k < subChild.size(); k++) {
+                headersInfo[k] = subChild.get(k).getText();
+                if(subChild.get(k).getGrandChild() != null) {
+                    List<FilterChild.SubChild.GrandChild> grandChildInfo = subChild.get(k).getGrandChild();
+                    String[] info = new String[grandChildInfo.size()];
+                    for(int gc = 0; gc<grandChildInfo.size(); gc++){
+                        info[gc] = grandChildInfo.get(gc).getText();
+                    }
+                    childData.add(info);
+                }
+            }
         }
-
 
         customELV.setAdapter(new ThirdLevelListAdapter(context, headersInfo,childData));
         customELV.setGroupIndicator(null);
@@ -120,7 +128,7 @@ public class SecondLevelListAdapter extends BaseExpandableListAdapter {
         });
 
 
-        return customELV;*/
+        return customELV;
     }
 
     @Override

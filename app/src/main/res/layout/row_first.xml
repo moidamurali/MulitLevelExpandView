@@ -13,4 +13,9 @@
         android:paddingLeft="24dp"
         android:textColor="?colorPrimary"
         android:textSize="20sp"/>
+
+<!--    <view
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimaryDark"/>-->
 </LinearLayout>
