@@ -89,10 +89,8 @@ public class ChildLevelListAdapter extends BaseExpandableListAdapter {
 
                 if(subChild!=null && !subChild.isEmpty()) {
                     for (int k = 0; k < subChild.size(); k++) {
-                        Log.v("Log Info:::","Header:::" + headers[groupPosition] + " ::Child::" + subChild.get(k).getText()+ " ::Grand Child::" + subChild.get(k).getGrandChild());
                         textView.setText(subChild.get(k).getText());
                     }
-
             }
 
         return convertView;
@@ -126,17 +124,15 @@ public class ChildLevelListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        List<FilterChild.SubChild> sample =  subSubData.get(headers[groupPosition]);
 
+        List<FilterChild.SubChild> subChildInfo =  subSubData.get(headers[groupPosition]);
 
-        String[] children={};
-        if(data.size()>groupPosition) {
-            children = data.get(groupPosition);
+        if(subChildInfo==null || subChildInfo.size()==0) {
+            return  0;
         }
-        if(children.length == 0)
-            return 0;
-        else
-        return children.length;
+        else{
+        return subChildInfo.size();
+        }
     }
 
     @Override
