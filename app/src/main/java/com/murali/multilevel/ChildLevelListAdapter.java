@@ -6,12 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.murali.models.FilterChild;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -87,26 +85,15 @@ public class ChildLevelListAdapter extends BaseExpandableListAdapter {
 
             TextView textView = (TextView) convertView.findViewById(R.id.rowThirdText);
 
-            for(int j=0; j<headers.length;j++){
-                List<FilterChild.SubChild> subChild =  subSubData.get(headers[j]);
+                List<FilterChild.SubChild> subChild =  subSubData.get(headers[groupPosition]);
 
                 if(subChild!=null && !subChild.isEmpty()) {
                     for (int k = 0; k < subChild.size(); k++) {
-
+                        Log.v("Log Info:::","Header:::" + headers[groupPosition] + " ::Child::" + subChild.get(k).getText()+ " ::Grand Child::" + subChild.get(k).getGrandChild());
                         textView.setText(subChild.get(k).getText());
-                        for(int gc=0;gc<subChild.get(k).getGrandChild().size();gc++){
-                            Log.v("Log Info:::","Header:::" + headers[j] + " ::Child::" + subChild.get(k).getText()+ " ::Grand Child::" + subChild.get(k).getGrandChild().get(gc).getText());
-                        }
                     }
-                    break;
-                }
+
             }
-
-           /* String[] childArray=data.get(groupPosition);
-
-            String text = childArray[childPosition];
-
-            textView.setText(text);*/
 
         return convertView;
     /*    final CustomExpandableListView customELV = new CustomExpandableListView(context);
@@ -139,10 +126,17 @@ public class ChildLevelListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        //String[] children = data.get(groupPosition);
+        List<FilterChild.SubChild> sample =  subSubData.get(headers[groupPosition]);
 
 
-        return data.size();//children.length;
+        String[] children={};
+        if(data.size()>groupPosition) {
+            children = data.get(groupPosition);
+        }
+        if(children.length == 0)
+            return 0;
+        else
+        return children.length;
     }
 
     @Override
