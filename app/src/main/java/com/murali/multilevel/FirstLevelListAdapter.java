@@ -124,8 +124,10 @@ public class FirstLevelListAdapter extends BaseExpandableListAdapter {
 
 
         customELV.setAdapter(new SecondLevelListAdapter(context, headers,childData, subSubData));
+        //Below lines used for to remove indicator between child items
         customELV.setGroupIndicator(null);
-
+        customELV.setChildIndicator(null);
+        customELV.setDividerHeight(0);
 
         customELV.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             int previousGroup = -1;

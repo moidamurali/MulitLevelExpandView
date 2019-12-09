@@ -80,21 +80,6 @@ public class SecondLevelListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-
-           /* LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.row_third, null);
-
-            TextView textView = (TextView) convertView.findViewById(R.id.rowThirdText);
-
-                List<FilterChild.SubChild> subChild =  subSubData.get(headers[groupPosition]);
-
-                if(subChild!=null && !subChild.isEmpty()) {
-                    for (int k = 0; k < subChild.size(); k++) {
-                        textView.setText(subChild.get(k).getText());
-                    }
-            }
-
-        return convertView;*/
         final CustomExpandableListView customELV = new CustomExpandableListView(context);
 
         List<String[]> childData =new ArrayList<>();
@@ -115,7 +100,11 @@ public class SecondLevelListAdapter extends BaseExpandableListAdapter {
         }
 
         customELV.setAdapter(new ThirdLevelListAdapter(context, headersInfo,childData));
+        //Below lines used for to remove indicator between child items
         customELV.setGroupIndicator(null);
+        customELV.setChildIndicator(null);
+        customELV.setDividerHeight(0);
+
         customELV.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             int previousGroup = -1;
 
