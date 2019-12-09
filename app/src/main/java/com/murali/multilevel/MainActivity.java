@@ -3,6 +3,7 @@ package com.murali.multilevel;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.AbsListView;
 import android.widget.ExpandableListView;
 
 import com.google.gson.Gson;
@@ -77,13 +78,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        expandableListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount
+                    , int totalItemCount) {
+                if(firstVisibleItem+visibleItemCount>=totalItemCount){
+                    //the last item is visible
+                }
+
+            }
+        });
+
 
     }
 
     private void getFilterResponse() {
         FilterSerViceResponse responseData= null;
         List<FilterElements> elementsList = null;
-        String response = Constants.newJsonStringList;
+        String response = Constants.newJsonStringListInfo;
+        //String response = Constants.newJsonStringList;
         try {
             responseData = new Gson().fromJson(response, FilterSerViceResponse.class);
         } catch (Exception e) {
