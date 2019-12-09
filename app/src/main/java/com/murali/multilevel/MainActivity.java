@@ -100,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
     private void getFilterResponse() {
         FilterSerViceResponse responseData= null;
         List<FilterElements> elementsList = null;
-        String response = Constants.newJsonStringListInfo;
-        //String response = Constants.newJsonStringList;
+        //String response = Constants.newJsonStringListInfo;
+        String response = Constants.newJsonStringList;
         try {
             responseData = new Gson().fromJson(response, FilterSerViceResponse.class);
         } catch (Exception e) {
