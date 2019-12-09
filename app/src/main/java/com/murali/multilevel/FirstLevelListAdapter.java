@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class ParentLevelListAdapter extends BaseExpandableListAdapter {
+public class FirstLevelListAdapter extends BaseExpandableListAdapter {
 
     String[] parentHeaders;
     List<String[]> secondLevelHeader;
@@ -23,8 +23,8 @@ public class ParentLevelListAdapter extends BaseExpandableListAdapter {
     List<LinkedHashMap<String, String[]>> secondLevelData;
     LinkedHashMap<String,List<FilterChild>> finalData;
 
-    public ParentLevelListAdapter(Context context, String[] parentHeader, List<String[]> secondLevel, List<LinkedHashMap<String, String[]>> data,
-                                  LinkedHashMap<String,List<FilterChild>> finalData) {
+    public FirstLevelListAdapter(Context context, String[] parentHeader, List<String[]> secondLevel, List<LinkedHashMap<String, String[]>> data,
+                                 LinkedHashMap<String,List<FilterChild>> finalData) {
         this.context = context;
 
         this.parentHeaders = parentHeader;
@@ -123,7 +123,7 @@ public class ParentLevelListAdapter extends BaseExpandableListAdapter {
 
 
 
-        customELV.setAdapter(new ChildLevelListAdapter(context, headers,childData, subSubData));
+        customELV.setAdapter(new SecondLevelListAdapter(context, headers,childData, subSubData));
         customELV.setGroupIndicator(null);
 
 

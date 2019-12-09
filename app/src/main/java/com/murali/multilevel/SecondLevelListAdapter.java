@@ -1,7 +1,6 @@
 package com.murali.multilevel;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class ChildLevelListAdapter extends BaseExpandableListAdapter {
+public class SecondLevelListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
 
@@ -24,7 +23,7 @@ public class ChildLevelListAdapter extends BaseExpandableListAdapter {
     String[] headers;
     HashMap<String, List<FilterChild.SubChild>> subSubData;
 
-    public ChildLevelListAdapter(Context context, String[] headers, List<String[]> data, HashMap<String, List<FilterChild.SubChild>> subSubData) {
+    public SecondLevelListAdapter(Context context, String[] headers, List<String[]> data, HashMap<String, List<FilterChild.SubChild>> subSubData) {
         this.context = context;
         this.data = data;
         this.headers = headers;

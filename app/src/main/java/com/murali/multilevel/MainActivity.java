@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         expandableListView = (ExpandableListView) findViewById(R.id.expandible_listview);
         getFilterResponse();
         // parent adapter
-        ParentLevelListAdapter threeLevelListAdapterAdapter = new ParentLevelListAdapter(this, parentLevelHeaders, secondLevelHeaders, data, finalData);
+        FirstLevelListAdapter threeLevelListAdapterAdapter = new FirstLevelListAdapter(this, parentLevelHeaders, secondLevelHeaders, data, finalData);
 
 
         // set adapter

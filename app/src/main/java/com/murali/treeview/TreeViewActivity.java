@@ -3,13 +3,11 @@ package com.murali.treeview;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ExpandableListView;
 
 import com.google.gson.Gson;
 import com.murali.models.FilterChild;
 import com.murali.models.FilterElements;
 import com.murali.models.FilterSerViceResponse;
-import com.murali.multilevel.ParentLevelListAdapter;
 import com.murali.multilevel.R;
 import com.murali.nlevel.Constants;
 

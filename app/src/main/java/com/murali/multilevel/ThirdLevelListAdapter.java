@@ -5,15 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 
-public class SubChildLevelListAdapter extends BaseExpandableListAdapter {
+public class ThirdLevelListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
 
@@ -23,7 +20,7 @@ public class SubChildLevelListAdapter extends BaseExpandableListAdapter {
     String[] headers;
 
 
-    public SubChildLevelListAdapter(Context context, String[] headers, List<String[]> data) {
+    public ThirdLevelListAdapter(Context context, String[] headers, List<String[]> data) {
         this.context = context;
         this.data = data;
         this.headers = headers;
