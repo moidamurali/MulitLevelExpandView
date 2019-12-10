@@ -9,12 +9,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-  <ExpandableListView
+  <com.murali.multilevel.ExpandableHeightListView
 
       android:id="@+id/expandible_listview"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:groupIndicator="@null"
-      android:divider="@null"/>
+      android:divider="@null"
+      android:transcriptMode="alwaysScroll"/>
 
 </LinearLayout>

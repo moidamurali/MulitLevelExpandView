@@ -76,7 +76,7 @@ public class FirstLevelListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-
+            convertView = null;
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.row_first, null);
             TextView text = (TextView) convertView.findViewById(R.id.rowParentText);

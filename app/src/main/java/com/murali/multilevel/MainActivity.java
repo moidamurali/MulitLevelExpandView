@@ -24,7 +24,7 @@ import java.util.List;
  * Define LinkedHasMap for each subcategory where key is subcategory name, and value is a string array
  */
 public class MainActivity extends AppCompatActivity {
-
+    //https://stackoverflow.com/questions/15651288/getchildview-not-being-called/25386226
     /**
      * The Expandable list view.
      */
@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // OPTIONAL : Show one list at a time
+        //For to Hide previously opened parent
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             int previousGroup = -1;
 
