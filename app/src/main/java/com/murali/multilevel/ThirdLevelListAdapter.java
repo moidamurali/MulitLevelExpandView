@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -86,6 +87,8 @@ public class ThirdLevelListAdapter extends BaseExpandableListAdapter {
             String text = childArray[childPosition];
 
             textView.setText(text);
+
+        Toast.makeText(context,childArray[childPosition],Toast.LENGTH_SHORT).show();
 
         return convertView;
     }

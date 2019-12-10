@@ -14,7 +14,6 @@ import com.murali.models.FilterChild;
 import com.murali.models.FilterElements;
 import com.murali.models.FilterSerViceResponse;
 import com.murali.multilevel.R;
-import com.murali.nlevel.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
