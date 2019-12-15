@@ -55,6 +55,14 @@ public class ThirdLevelListAdapter extends BaseExpandableListAdapter {
             String groupText = getGroup(groupPosition).toString();
             text.setText(groupText);
 
+//        ExpandableListView expandableListView = (ExpandableListView) parent;
+//        expandableListView.expandGroup(groupPosition);
+//
+//        ViewGroup.LayoutParams params = expandableListView.getLayoutParams();
+//        params.height = headers.length * 520;
+//        expandableListView.setLayoutParams(params);
+//        expandableListView.requestLayout();
+
         return convertView;
     }
 

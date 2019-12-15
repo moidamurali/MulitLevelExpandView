@@ -81,14 +81,14 @@ public class TreeViewAdapter extends BaseAdapter {
                 holder.disclosureImg.getPaddingBottom());
         holder.contentText.setText(element.getContentText());
         if (element.isHasChildren() && !element.isExpanded()) {
-            holder.disclosureImg.setImageResource(R.drawable.down_arrow);
+            //holder.disclosureImg.setImageResource(R.drawable.down_arrow);
             //Actively set icon visibility here, because convertView may be a reuse of "set invisible" view, the same below.
             holder.disclosureImg.setVisibility(View.VISIBLE);
         } else if (element.isHasChildren() && element.isExpanded()) {
-            holder.disclosureImg.setImageResource(R.drawable.up_arrow);
+            //holder.disclosureImg.setImageResource(R.drawable.up_arrow);
             holder.disclosureImg.setVisibility(View.VISIBLE);
         } else if (!element.isHasChildren()) {
-            holder.disclosureImg.setImageResource(R.drawable.down_arrow);
+            //holder.disclosureImg.setImageResource(R.drawable.down_arrow);
             holder.disclosureImg.setVisibility(View.INVISIBLE);
             collapseBrotherNode(element);
             notifyDataSetChanged();

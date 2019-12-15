@@ -37,6 +37,10 @@ public class ExpandableHeightListView extends ExpandableListView {
         } else {
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         }
+
+      /*  // ExpandableListView requires a maximum height in order to do measurement calculations.
+        heightMeasureSpec = MeasureSpec.makeMeasureSpec(MEASURED_SIZE_MASK, MeasureSpec.AT_MOST);
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);*/
     }
 
     public void setExpanded(boolean expanded) {

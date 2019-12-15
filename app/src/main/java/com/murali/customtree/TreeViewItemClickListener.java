@@ -34,7 +34,7 @@ public class TreeViewItemClickListener implements OnItemClickListener {
 
         //Click on item without subitem to return directly
         if (!element.isHasChildren()) {
-            Toast.makeText(view.getContext(),elements.get(position).getContentText(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(),elements.get(position).getContentText() + ":::" + parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
             return;
         }
 
