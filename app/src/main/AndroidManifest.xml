@@ -10,9 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-<!--com.murali.treeViewSample.demo.TreeViewListDemo
+<!--
 com.murali.multilevel.MainActivity
-com.murali.treeview.TreeViewActivity
 com.murali.customtree.TreeViewActivity
 -->
 
