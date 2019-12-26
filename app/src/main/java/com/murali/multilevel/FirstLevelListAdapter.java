@@ -42,7 +42,7 @@ public class FirstLevelListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        // no idea why this code is working
+        //return lstHeaders[groupPosition].LstSubItems.Count;
         return 1;
 
     }
