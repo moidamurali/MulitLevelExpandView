@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * TreeViewAdapter
  *
- * @author carrey
+ * @author Murali
  */
 public class TreeViewAdapter extends BaseAdapter {
     /**
@@ -112,7 +112,7 @@ public class TreeViewAdapter extends BaseAdapter {
     /**
      * Optimizing Holder
      *
-     * @author carrey
+     * @author Murali
      */
     static class ViewHolder {
         ImageView disclosureImg;

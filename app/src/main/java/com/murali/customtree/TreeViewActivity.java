@@ -1,22 +1,15 @@
 package com.murali.customtree;
 
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
+import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.widget.ListView;
 
-import com.google.gson.Gson;
-import com.murali.models.FilterChild;
-import com.murali.models.FilterElements;
-import com.murali.models.FilterSerViceResponse;
 import com.murali.multilevel.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TreeViewActivity extends Activity {
     /**
