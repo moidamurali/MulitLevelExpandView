@@ -92,53 +92,6 @@ public class TreeViewActivity extends Activity {
         elementsData.add(e12);
         elementsData.add(e13);
 
-            //elementInfo = new TreeElementInfo();
-        /*    FilterSerViceResponse responseData= null;
-            List<FilterElements> elementsList = null;
-            String response = Constants.newJsonStringList;
-        try {
-            responseData = new Gson().fromJson(response, FilterSerViceResponse.class);
-
-            if (null != responseData) {
-                List<FilterSerViceResponse.FilterFacet> filterFacets = responseData.getProducts().getFacets();
-                for (FilterSerViceResponse.FilterFacet mFilterFacet : filterFacets) {
-                    if (mFilterFacet.getKey().equalsIgnoreCase("categories")) {
-                        elementsList = mFilterFacet.getElements();
-                        for (int i = 0; i < elementsList.size(); i++) {
-
-                            List<FilterChild> child = elementsList.get(i).getChild();
-                            String[] scData = new String[child.size()];
-                            for (int c = 0; c < child.size(); c++) {
-                                scData[c] = child.get(c).getText();
-                                List<FilterChild.SubChild> subChildList = child.get(c).getSubChild();
-                                if (subChildList != null && !subChildList.isEmpty()) {
-                                    String[] subChildArray = new String[subChildList.size()];
-                                    for (int sc = 0; sc < subChildList.size(); sc++) {
-                                        subChildArray[sc] = subChildList.get(sc).getText();
-                                    }
-
-                                }
-                            }
-
-
-                        }
-
-
-                        return;
-                    }
-                }
-            }
-        } catch (Exception e) {
-            Log.e("", e.getMessage());
-        }*/
-
     }
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_main, menu);
-        return true;
-    }*/
 
 }
