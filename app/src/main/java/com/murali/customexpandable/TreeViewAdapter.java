@@ -1,4 +1,4 @@
-package com.murali.customtree;
+package com.murali.customexpandable;
 
 
 import android.view.LayoutInflater;
@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.murali.multilevel.R;
 
 import java.util.ArrayList;
 
@@ -21,11 +19,11 @@ public class TreeViewAdapter extends BaseAdapter {
     /**
      * Elemental data sources
      */
-    private ArrayList<Element> elementsData;
+    private ArrayList<Elements.ElementsData> elementsData;
     /**
      * Elements in trees
      */
-    private ArrayList<Element> elements;
+    private ArrayList<Elements.ElementsData> elements;
     /**
      * LayoutInflater
      */
@@ -35,18 +33,18 @@ public class TreeViewAdapter extends BaseAdapter {
      */
     private int indentionBase;
 
-    public TreeViewAdapter(ArrayList<Element> elements, ArrayList<Element> elementsData, LayoutInflater inflater) {
+    public TreeViewAdapter(ArrayList<Elements.ElementsData> elements, ArrayList<Elements.ElementsData> elementsData, LayoutInflater inflater) {
         this.elements = elements;
         this.elementsData = elementsData;
         this.inflater = inflater;
         indentionBase = 50;
     }
 
-    public ArrayList<Element> getElements() {
+    public ArrayList<Elements.ElementsData> getElements() {
         return elements;
     }
 
-    public ArrayList<Element> getElementsData() {
+    public ArrayList<Elements.ElementsData> getElementsData() {
         return elementsData;
     }
 
@@ -79,13 +77,13 @@ public class TreeViewAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        Element element = elements.get(position);
+        Elements.ElementsData element = elements.get(position);
         int level = element.getLevel();
         holder.disclosureImg.setPadding(indentionBase * (level + 1),
                 holder.disclosureImg.getPaddingTop(),
                 holder.disclosureImg.getPaddingRight(),
                 holder.disclosureImg.getPaddingBottom());
-        holder.contentText.setText(element.getContentText());
+        holder.contentText.setText(element.getTitle());
         if (element.isHasChildren() && !element.isExpanded()) {
             holder.disclosureImg.setVisibility(View.VISIBLE);
         } else if (element.isHasChildren() && element.isExpanded()) {

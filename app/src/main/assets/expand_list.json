@@ -1,0 +1,120 @@
+﻿{
+  "author": "Murali Mohan",
+  "version": 1,
+  "releaseDate": "2019-12-25T00:00:00.000Z",
+  "demo": true,
+  "elements": [
+    {
+      "title": "AndhraPradesh",
+      "level": 1,
+      "hasChildern": true,
+      "isExpand": false,
+      "parentID": "AndhraPradesh",
+      "id": "AndhraPradesh"
+    },
+    {
+      "title": "VisakhaPatnam",
+      "level": 2,
+      "hasChildern": true,
+      "isExpand": false,
+      "parentID": "AndhraPradesh",
+      "id": "VisakhaPatnam"
+    },
+    {
+      "title": "Anakapalle",
+      "level": 2,
+      "hasChildern": true,
+      "isExpand": false,
+      "parentID": "VisakhaPatnam",
+      "id": "Anakapalle"
+    },
+    {
+      "title": "Vizianagaram",
+      "level": 2,
+      "hasChildern": true,
+      "isExpand": false,
+      "parentID": 1,
+      "id": "Vizianagaram"
+    },
+    {
+      "title": "NelliMarla",
+      "level": 1,
+      "hasChildern": true,
+      "isExpand": false,
+      "parentID": "Vizianagaram",
+      "id": "NelliMarla"
+    },
+    {
+      "title": "Moida",
+      "level": 1,
+      "hasChildern": true,
+      "isExpand": false,
+      "parentID": "NelliMarla",
+      "id": "Moida"
+    },
+    {
+      "title": "EastGodavari",
+      "level": 2,
+      "hasChildern": true,
+      "isExpand": false,
+      "parentID": "AndhraPradesh",
+      "id": "EastGodavari"
+    },
+    {
+      "title": "WestGodavari",
+      "level": 2,
+      "hasChildern": true,
+      "isExpand": false,
+      "parentID": "AndhraPradesh",
+      "id": "WestGodavari"
+    },
+    {
+      "title": "SrikaKulam",
+      "level": 2,
+      "hasChildern": true,
+      "isExpand": false,
+      "parentID": "AndhraPradesh",
+      "id": "SrikaKulam"
+    },
+    {
+      "title": "Tekkali",
+      "level": 2,
+      "hasChildern": false,
+      "isExpand": false,
+      "parentID": "SrikaKulam",
+      "id": "SrikaKulam"
+    },
+    {
+      "title": "TamilNadu",
+      "level": 2,
+      "hasChildern": true,
+      "isExpand": false,
+      "parentID": "TamilNadu",
+      "id": "TamilNadu"
+    },
+    {
+      "title": "Chennai",
+      "level": 2,
+      "hasChildern": false,
+      "isExpand": false,
+      "parentID": "TamilNadu",
+      "id": "Chennai"
+    },
+    {
+      "title": "Karnataka",
+      "level": 3,
+      "hasChildern": true,
+      "isExpand": false,
+      "parentID": "Karnataka",
+      "id": "Karnataka"
+    },
+    {
+      "title": "Bangalore",
+      "level": 1,
+      "hasChildern": false,
+      "isExpand": false,
+      "parentID": "Karnataka",
+      "id": "Bangalore"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-    package="com.murali.multilevel">
+    package="com.murali.customexpandable">
 
     <application
         android:allowBackup="true"
@@ -10,12 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-<!--
-com.murali.multilevel.MainActivity
-com.murali.customtree.TreeViewActivity
--->
-
-        <activity android:name="com.murali.customtree.TreeViewActivity">
+        <activity android:name="com.murali.customexpandable.TreeViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
