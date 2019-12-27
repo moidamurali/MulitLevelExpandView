@@ -108,13 +108,13 @@ public class TreeViewActivity extends Activity {
         //Add outermost nodes
         Elements.ElementsData e9 = new Elements.ElementsData("Andhra Pradesh", Elements.ElementsData.TOP_LEVEL, ""+8, Elements.ElementsData.NO_PARENT, true, false);
         //Adding Layer 1 Nodes
-        Elements.ElementsData e10 = new Elements.ElementsData("AnandhaPuram", Elements.ElementsData.TOP_LEVEL + 1, ""+9, e9.getId(), true, false);
+        Elements.ElementsData e10 = new Elements.ElementsData("VSKP", Elements.ElementsData.TOP_LEVEL + 1, ""+9, e9.getId(), true, false);
         //Adding Layer 2 Nodes
-        Elements.ElementsData e11 = new Elements.ElementsData("Vizag District", Elements.ElementsData.TOP_LEVEL + 2, ""+10, e10.getId(), true, false);
+        Elements.ElementsData e11 = new Elements.ElementsData("Vishalakshi Nagar", Elements.ElementsData.TOP_LEVEL + 2, ""+10, e10.getId(), true, false);
         //Adding Layer 3 Nodes
-        Elements.ElementsData e12 = new Elements.ElementsData("Podigiaplem Dadao", Elements.ElementsData.TOP_LEVEL + 3, ""+11, e11.getId(), true, false);
+        Elements.ElementsData e12 = new Elements.ElementsData("Police Barex", Elements.ElementsData.TOP_LEVEL + 3, ""+11, e11.getId(), true, false);
         //Adding Layer 4 Nodes
-        Elements.ElementsData e13 = new Elements.ElementsData("10000 Number", Elements.ElementsData.TOP_LEVEL + 4, ""+12, e12.getId(), false, false);
+        Elements.ElementsData e13 = new Elements.ElementsData("Police Quarters", Elements.ElementsData.TOP_LEVEL + 4, ""+12, e12.getId(), false, false);
 
         //Add the initial tree element
         parentElements.add(e1);
