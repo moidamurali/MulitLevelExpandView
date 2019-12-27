@@ -65,7 +65,7 @@ public class TreeViewItemClickListener implements OnItemClickListener {
     }
 
     private void collapseOthers(Elements.ElementsData element, ArrayList<Elements.ElementsData> elements) {
-        ArrayList<Integer> parents =new ArrayList<>();
+        ArrayList<String> parents =new ArrayList<>();
 
         getParents(element.getId(), elements, parents);
 
@@ -76,12 +76,12 @@ public class TreeViewItemClickListener implements OnItemClickListener {
             }
     }
 
-    private void getParents(int id, ArrayList<Elements.ElementsData> elements, ArrayList<Integer> parents) {
+    private void getParents(String id, ArrayList<Elements.ElementsData> elements, ArrayList<String> parents) {
 
             for(int j =0;j<elements.size();j++){
                 if(elements.get(j).getId() == id) {
                     parents.add(elements.get(j).getId());
-                    if(elements.get(j).getParentId() != -1) {
+                    if(Integer.parseInt(elements.get(j).getParentId()) != -1) {
                         getParents(elements.get(j).getParentId(),elements,parents);
                     }
             }

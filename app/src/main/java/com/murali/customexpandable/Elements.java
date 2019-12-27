@@ -10,8 +10,9 @@ import java.util.List;
  */
 public class Elements {
 
-    /** Text Author*/
     private String author;
+    private String releaseDate;
+    private List<ElementsData> elementsData = null;
 
     public String getAuthor() {
         return author;
@@ -21,15 +22,21 @@ public class Elements {
         this.author = author;
     }
 
-    public List<ElementsData> getElementsDataList() {
-        return mElementsDataList;
+    public String getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setElementsDataList(List<ElementsData> mElementsDataList) {
-        this.mElementsDataList = mElementsDataList;
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
-    List<ElementsData> mElementsDataList = new ArrayList<>();
+    public List<ElementsData> getElementsData() {
+        return elementsData;
+    }
+
+    public void setElementsData(List<ElementsData> elementsData) {
+        this.elementsData = elementsData;
+    }
 
 
     public static class ElementsData{
@@ -39,20 +46,20 @@ public class Elements {
         /** Hierarchy in tree*/
         private int level;
         /** The id of the element*/
-        private int id;
+        private String id;
         /** id of parent element*/
-        private int parentId;
+        private String parentId;
         /** Is there a child element?*/
         private boolean hasChildren;
         /** item Whether to expand*/
         private boolean isExpanded;
 
         /** Represents that the node has no parent element, that is, a node with level 0.*/
-        public static final int NO_PARENT = -1;
+        public static final String NO_PARENT = ""+-1;
         /** Indicates that the element is at the top level.*/
         public static final int TOP_LEVEL = 0;
 
-        public ElementsData(String contentText, int level, int id, int parentId, boolean hasChildren, boolean isExpanded) {
+        public ElementsData(String contentText, int level, String id, String parentId, boolean hasChildren, boolean isExpanded) {
             super();
             this.title = contentText;
             this.level = level;
@@ -86,20 +93,20 @@ public class Elements {
             this.level = level;
         }
 
-        public int getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(String id) {
             this.id = id;
         }
 
-        public int getParentId() {
+        public String getParentId() {
             return parentId;
         }
 
-        public void setParentId(int parendId) {
-            this.parentId = parendId;
+        public void setParentId(String parentId) {
+            this.parentId = parentId;
         }
 
         public boolean isHasChildren() {
