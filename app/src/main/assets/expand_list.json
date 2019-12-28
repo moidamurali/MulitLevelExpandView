@@ -1,31 +1,31 @@
 ﻿{
   "author": "Murali Mohan",
-  "version": 1,
-  "releaseDate": "2019-12-25T00:00:00.000Z",
+  "version": "1",
+  "releaseDate": "2019-12-28T00:00:00.000Z",
   "demo": true,
   "elementsData": [
     {
       "title": "AndhraPradesh",
-      "level": 1,
+      "level": "1",
       "hasChildern": true,
       "isExpand": false,
-      "parentID": "AndhraPradesh",
+      "parentId": "AndhraPradesh",
       "id": "AndhraPradesh"
     },
     {
       "title": "VisakhaPatnam",
-      "level": 2,
+      "level": "2",
       "hasChildern": true,
       "isExpand": false,
-      "parentID": "AndhraPradesh",
+      "parentId": "AndhraPradesh",
       "id": "VisakhaPatnam"
     },
     {
       "title": "Anakapalle",
       "level": 2,
-      "hasChildern": true,
+      "hasChildern": false,
       "isExpand": false,
-      "parentID": "VisakhaPatnam",
+      "parentId": "VisakhaPatnam",
       "id": "Anakapalle"
     },
     {
@@ -33,7 +33,7 @@
       "level": 2,
       "hasChildern": true,
       "isExpand": false,
-      "parentID": "AndhraPradesh",
+      "parentId": "AndhraPradesh",
       "id": "Vizianagaram"
     },
     {
@@ -41,31 +41,31 @@
       "level": 1,
       "hasChildern": true,
       "isExpand": false,
-      "parentID": "Vizianagaram",
+      "parentId": "Vizianagaram",
       "id": "NelliMarla"
     },
     {
       "title": "Moida",
       "level": 1,
-      "hasChildern": true,
+      "hasChildern": false,
       "isExpand": false,
-      "parentID": "NelliMarla",
+      "parentId": "NelliMarla",
       "id": "Moida"
     },
     {
       "title": "EastGodavari",
       "level": 2,
-      "hasChildern": true,
+      "hasChildern": false,
       "isExpand": false,
-      "parentID": "AndhraPradesh",
+      "parentId": "AndhraPradesh",
       "id": "EastGodavari"
     },
     {
       "title": "WestGodavari",
       "level": 2,
-      "hasChildern": true,
+      "hasChildern": false,
       "isExpand": false,
-      "parentID": "AndhraPradesh",
+      "parentId": "AndhraPradesh",
       "id": "WestGodavari"
     },
     {
@@ -73,7 +73,7 @@
       "level": 2,
       "hasChildern": true,
       "isExpand": false,
-      "parentID": "AndhraPradesh",
+      "parentId": "AndhraPradesh",
       "id": "SrikaKulam"
     },
     {
@@ -81,31 +81,39 @@
       "level": 2,
       "hasChildern": false,
       "isExpand": false,
-      "parentID": "SrikaKulam",
-      "id": "SrikaKulam"
+      "parentId": "SrikaKulam",
+      "id": "Tekkali"
     },
     {
       "title": "TamilNadu",
       "level": 2,
       "hasChildern": true,
       "isExpand": false,
-      "parentID": "TamilNadu",
+      "parentId": "TamilNadu",
       "id": "TamilNadu"
     },
     {
       "title": "Chennai",
       "level": 2,
+      "hasChildern": true,
+      "isExpand": false,
+      "parentId": "TamilNadu",
+      "id": "Chennai"
+    },
+    {
+      "title": "KeelKattalai",
+      "level": 2,
       "hasChildern": false,
       "isExpand": false,
-      "parentID": "TamilNadu",
-      "id": "Chennai"
+      "parentId": "Chennai",
+      "id": "KeelKattalai"
     },
     {
       "title": "Karnataka",
       "level": 3,
       "hasChildern": true,
       "isExpand": false,
-      "parentID": "Karnataka",
+      "parentId": "Karnataka",
       "id": "Karnataka"
     },
     {
@@ -113,7 +121,7 @@
       "level": 1,
       "hasChildern": false,
       "isExpand": false,
-      "parentID": "Karnataka",
+      "parentId": "Karnataka",
       "id": "Bangalore"
     }
   ]

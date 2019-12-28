@@ -49,7 +49,7 @@ public class TreeViewActivity extends Activity {
         parentElements = new ArrayList<Elements.ElementsData>();
         elementsData = new ArrayList<Elements.ElementsData>();
 
-        try {
+        /*try {
             AssetManager assetManager = getAssets();
             InputStream ims = assetManager.open("expand_list.json");
 
@@ -57,11 +57,10 @@ public class TreeViewActivity extends Activity {
             Reader reader = new InputStreamReader(ims);
 
             Elements gsonObj = gson.fromJson(reader, Elements.class);
-/*
             for(int i=0; i<gsonObj.getElementsData().size();i++){
                 Log.i("Title::::", gsonObj.getElementsData().get(i).getTitle());
 
-                if(gsonObj.getElementsData().get(i).getTitle().equalsIgnoreCase(gsonObj.getElementsData().get(i).getParentId())){
+                if(gsonObj.getElementsData().get(i).getId().equalsIgnoreCase(gsonObj.getElementsData().get(i).getParentId())){
                     //Add the initial tree element
                     parentElements.add(gsonObj.getElementsData().get(i));
                 }
@@ -70,16 +69,20 @@ public class TreeViewActivity extends Activity {
 
             for(int k=0;k<parentElements.size();k++){
 
-                if(parentElements.get(k).getParentId().equalsIgnoreCase(gsonObj.getElementsData().get(i).getId())){
-                    parentElements.add(gsonObj.getElementsData().get(i));
-                    elementsData.add(gsonObj.getElementsData().get(k));
+                for(int i=0; i<gsonObj.getElementsData().size();i++) {
+
+                    if (parentElements.get(k).getParentId().equalsIgnoreCase(gsonObj.getElementsData().get(i).getId())) {
+                        elementsData.add(parentElements.get(k));
+                    }else {
+                        elementsData.add(gsonObj.getElementsData().get(i));
+                    }
                 }
 
-            }*/
+            }
 
         }catch(IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
 

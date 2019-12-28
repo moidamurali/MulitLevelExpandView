@@ -81,7 +81,7 @@ public class TreeViewItemClickListener implements OnItemClickListener {
             for(int j =0;j<elements.size();j++){
                 if(elements.get(j).getId() == id) {
                     parents.add(elements.get(j).getId());
-                    if(Integer.parseInt(elements.get(j).getParentId()) != -1) {
+                    if(!elements.get(j).getParentId().equalsIgnoreCase(elements.get(j).getId())) {
                         getParents(elements.get(j).getParentId(),elements,parents);
                     }
             }
