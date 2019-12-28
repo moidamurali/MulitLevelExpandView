@@ -55,7 +55,7 @@ public class TreeViewItemClickListener implements OnItemClickListener {
         element.setExpanded(true);
         int i = 1;//Note that the counter here is placed outside of for to ensure that the count is valid.
         for (Elements.ElementsData e : elementsData) {
-            if (e.getParentId() == element.getId()) {
+            if (e.getParentId().equalsIgnoreCase(element.getId())) {
                 e.setExpanded(false);
                 elements.add(position + i, e);
                 i ++;
@@ -79,7 +79,7 @@ public class TreeViewItemClickListener implements OnItemClickListener {
     private void getParents(String id, ArrayList<Elements.ElementsData> elements, ArrayList<String> parents) {
 
             for(int j =0;j<elements.size();j++){
-                if(elements.get(j).getId() == id) {
+                if(elements.get(j).getId().equalsIgnoreCase(id)) {
                     parents.add(elements.get(j).getId());
                     if(!elements.get(j).getParentId().equalsIgnoreCase(elements.get(j).getId())) {
                         getParents(elements.get(j).getParentId(),elements,parents);
