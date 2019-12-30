@@ -2,6 +2,7 @@ package com.murali.customexpandable.java;
 
 
 
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -62,6 +63,43 @@ public class TreeViewItemClickListener implements OnItemClickListener {
             }
         }
         collapseOthers(element, elements);
+    }
+
+    public void clickItem(int position, Elements.ElementsData mElement, ArrayList<Elements.ElementsData> mElements, ArrayList<Elements.ElementsData> mElementsData) {
+        Log.i("onItemClick", ""+position);
+        //点击的item代表的元素
+        Elements.ElementsData element = mElement;
+
+        ArrayList<Elements.ElementsData> elements = mElements;
+
+        ArrayList<Elements.ElementsData> elementsData = mElementsData;
+
+        if (!element.isHasChildren()) {
+            return;
+        }
+
+        if (element.isExpanded()) {
+            element.setExpanded(false);
+            ArrayList<Elements.ElementsData> elementsToDel = new ArrayList<Elements.ElementsData>();
+            for (int i = position + 1; i < elements.size(); i++) {
+                if (element.getLevel() >= elements.get(i).getLevel())
+                    break;
+                elementsToDel.add(elements.get(i));
+            }
+            elements.removeAll(elementsToDel);
+            treeViewAdapter.notifyDataSetChanged();
+        } else {
+            element.setExpanded(true);
+            int i = 1;
+            for (Elements.ElementsData e : elementsData) {
+                if (e.getParentId() == element.getId()) {
+                    e.setExpanded(false);
+                    elements.add(position + i, e);
+                    i ++;
+                }
+            }
+            treeViewAdapter.notifyDataSetChanged();
+        }
     }
 
     private void collapseOthers(Elements.ElementsData element, ArrayList<Elements.ElementsData> elements) {
