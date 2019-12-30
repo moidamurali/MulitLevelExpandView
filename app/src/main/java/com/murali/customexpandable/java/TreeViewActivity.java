@@ -1,4 +1,4 @@
-package com.murali.customexpandable;
+package com.murali.customexpandable.java;
 
 
 import android.app.Activity;
@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
+import com.murali.customexpandable.R;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,7 +50,7 @@ public class TreeViewActivity extends Activity {
         parentElements = new ArrayList<Elements.ElementsData>();
         elementsData = new ArrayList<Elements.ElementsData>();
 
-        /*try {
+/*        try {
             AssetManager assetManager = getAssets();
             InputStream ims = assetManager.open("expand_list.json");
 
@@ -59,23 +60,10 @@ public class TreeViewActivity extends Activity {
             Elements gsonObj = gson.fromJson(reader, Elements.class);
             for(int i=0; i<gsonObj.getElementsData().size();i++){
                 Log.i("Title::::", gsonObj.getElementsData().get(i).getTitle());
-
+                elementsData.add(gsonObj.getElementsData().get(i));
                 if(gsonObj.getElementsData().get(i).getId().equalsIgnoreCase(gsonObj.getElementsData().get(i).getParentId())){
                     //Add the initial tree element
                     parentElements.add(gsonObj.getElementsData().get(i));
-                }
-
-            }
-
-            for(int k=0;k<parentElements.size();k++){
-
-                for(int i=0; i<gsonObj.getElementsData().size();i++) {
-
-                    if (parentElements.get(k).getParentId().equalsIgnoreCase(gsonObj.getElementsData().get(i).getId())) {
-                        elementsData.add(parentElements.get(k));
-                    }else {
-                        elementsData.add(gsonObj.getElementsData().get(i));
-                    }
                 }
 
             }

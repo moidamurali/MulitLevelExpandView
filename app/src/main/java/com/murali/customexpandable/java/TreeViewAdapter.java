@@ -1,4 +1,4 @@
-package com.murali.customexpandable;
+package com.murali.customexpandable.java;
 
 
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.murali.customexpandable.R;
 
 import java.util.ArrayList;
 
@@ -84,6 +86,7 @@ public class TreeViewAdapter extends BaseAdapter {
                 holder.disclosureImg.getPaddingRight(),
                 holder.disclosureImg.getPaddingBottom());
         holder.contentText.setText(element.getTitle());
+        //&& element.isExpanded() && element.getId().equalsIgnoreCase(element.getParentId())
         if (element.isHasChildren() && !element.isExpanded()) {
             holder.disclosureImg.setVisibility(View.VISIBLE);
         } else if (element.isHasChildren() && element.isExpanded()) {

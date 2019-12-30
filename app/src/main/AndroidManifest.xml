@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.murali.customexpandable.TreeViewActivity">
+        <activity android:name="com.murali.customexpandable.java.TreeViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

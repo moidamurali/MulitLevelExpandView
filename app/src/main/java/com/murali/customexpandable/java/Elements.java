@@ -1,4 +1,4 @@
-package com.murali.customexpandable;
+package com.murali.customexpandable.java;
 
 import java.util.ArrayList;
 import java.util.List;
