@@ -1,7 +1,5 @@
 
-#Surviving-with-android
-
-This repository contains the source code related to the posts published in [Surviving with android] (http://www.survivingwithandroid.com)
+#Application for to expand list items upto N-Level using json data
 
 #Credits Author: Murali Mohan (mohanmca009@gmail.com)
 
