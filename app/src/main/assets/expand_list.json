@@ -9,7 +9,7 @@
       "level": "0",
       "hasChildren": true,
       "isExpanded": false,
-      "parentId": "AndhraPradesh",
+      "parentId": "ROOT",
       "id": "AndhraPradesh"
     },
     {
@@ -89,7 +89,7 @@
       "level": 0,
       "hasChildren": true,
       "isExpanded": false,
-      "parentId": "TamilNadu",
+      "parentId": "ROOT",
       "id": "TamilNadu"
     },
     {
@@ -113,7 +113,7 @@
       "level": 0,
       "hasChildren": true,
       "isExpanded": false,
-      "parentId": "Karnataka",
+      "parentId": "ROOT",
       "id": "Karnataka"
     },
     {
