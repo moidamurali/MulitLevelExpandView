@@ -17,6 +17,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    repositories {
+        google()
+    }
 }
 
 dependencies {
@@ -27,5 +30,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
     compile 'com.google.code.gson:gson:2.7'
-    //compile "androidx.recyclerview:recyclerview:1.1.0"
+    compile 'com.android.support:recyclerview-v7:25.4.0'
 }
