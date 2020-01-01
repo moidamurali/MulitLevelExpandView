@@ -17,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author Murali
  */
-public class TreeViewAdapter extends BaseAdapter {
+public class ListItemAdapter extends BaseAdapter {
     /**
      * Elemental data sources
      */
@@ -35,7 +35,7 @@ public class TreeViewAdapter extends BaseAdapter {
      */
     private int indentionBase;
 
-    public TreeViewAdapter(ArrayList<Elements.ElementsData> elements, ArrayList<Elements.ElementsData> elementsData, LayoutInflater inflater) {
+    public ListItemAdapter(ArrayList<Elements.ElementsData> elements, ArrayList<Elements.ElementsData> elementsData, LayoutInflater inflater) {
         this.elements = elements;
         this.elementsData = elementsData;
         this.inflater = inflater;

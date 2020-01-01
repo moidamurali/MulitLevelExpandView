@@ -40,9 +40,9 @@ public class TreeViewActivity extends Activity {
         //initializeStaticData();
 
         ListView treeview = (ListView) findViewById(R.id.treeview);
-        TreeViewAdapter treeViewAdapter = new TreeViewAdapter(parentElements, elementsData, inflater);
-        TreeViewItemClickListener treeViewItemClickListener = new TreeViewItemClickListener(treeViewAdapter);
-        treeview.setAdapter(treeViewAdapter);
+        ListItemAdapter mListItemAdapter = new ListItemAdapter(parentElements, elementsData, inflater);
+        ListItemClickListener treeViewItemClickListener = new ListItemClickListener(mListItemAdapter);
+        treeview.setAdapter(mListItemAdapter);
         treeview.setOnItemClickListener(treeViewItemClickListener);
     }
 

@@ -15,12 +15,12 @@ import java.util.ArrayList;
  * @author Murali
  *
  */
-public class TreeViewItemClickListener implements OnItemClickListener {
+public class ListItemClickListener implements OnItemClickListener {
     /** adapter */
-    private TreeViewAdapter treeViewAdapter;
+    private ListItemAdapter mListItemAdapter;
 
-    public TreeViewItemClickListener(TreeViewAdapter treeViewAdapter) {
-        this.treeViewAdapter = treeViewAdapter;
+    public ListItemClickListener(ListItemAdapter listItemAdapter) {
+        this.mListItemAdapter = listItemAdapter;
     }
 
     @Override
@@ -28,18 +28,18 @@ public class TreeViewItemClickListener implements OnItemClickListener {
                             long id) {
 
         //Click on the item to represent the element
-        Elements.ElementsData element = (Elements.ElementsData) treeViewAdapter.getItem(position);
+        Elements.ElementsData element = (Elements.ElementsData) mListItemAdapter.getItem(position);
         //Elements in trees
-        ArrayList<Elements.ElementsData> elements = treeViewAdapter.getElements();
+        ArrayList<Elements.ElementsData> elements = mListItemAdapter.getElements();
         //Element data source
-        ArrayList<Elements.ElementsData> elementsData = treeViewAdapter.getElementsData();
+        ArrayList<Elements.ElementsData> elementsData = mListItemAdapter.getElementsData();
 
 
         //Click on item without subitem to return directly
         if (!element.isHasChildren()) {
             Toast.makeText(view.getContext(),elements.get(position).getTitle(), Toast.LENGTH_SHORT).show();
             collapseOthers(element, elements);
-            treeViewAdapter.notifyDataSetChanged();
+            mListItemAdapter.notifyDataSetChanged();
             return;
         }
 
@@ -48,7 +48,7 @@ public class TreeViewItemClickListener implements OnItemClickListener {
         } else {
             Expend(position, element, elements, elementsData);
         }
-        treeViewAdapter.notifyDataSetChanged();
+        mListItemAdapter.notifyDataSetChanged();
     }
 
     private void Expend(int position, Elements.ElementsData element, ArrayList<Elements.ElementsData> elements, ArrayList<Elements.ElementsData> elementsData) {
@@ -87,7 +87,7 @@ public class TreeViewItemClickListener implements OnItemClickListener {
                 elementsToDel.add(elements.get(i));
             }
             elements.removeAll(elementsToDel);
-            treeViewAdapter.notifyDataSetChanged();
+            mListItemAdapter.notifyDataSetChanged();
         } else {
             element.setExpanded(true);
             int i = 1;
@@ -98,7 +98,7 @@ public class TreeViewItemClickListener implements OnItemClickListener {
                     i ++;
                 }
             }
-            treeViewAdapter.notifyDataSetChanged();
+            mListItemAdapter.notifyDataSetChanged();
         }
     }
 

@@ -9,20 +9,24 @@ import com.murali.customexpandable.R
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.io.Reader
-import java.util.*
+import kotlin.collections.ArrayList
 
 
-class TreeViewActivity : Activity() {
+class MainActivity : Activity() {
 
     lateinit var mRecyclerView : RecyclerView
-    var parentElements: List<Elements.ElementsData> = ArrayList<Elements.ElementsData>()
-    var elementsData: List<Elements.ElementsData> = ArrayList<Elements.ElementsData>()
+    var parentElementsList: ArrayList<Elements.ElementsData> = ArrayList<Elements.ElementsData>()
+    var elementsDataList: ArrayList<Elements.ElementsData> = ArrayList<Elements.ElementsData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.nlevel_activity_main)
 
         mRecyclerView = findViewById(R.id.expList) as RecyclerView;
+
+        mRecyclerView.layoutManager
+
+        layoutInflater
     }
 
     fun loadJsonDataFromAssets() = try {
@@ -30,12 +34,18 @@ class TreeViewActivity : Activity() {
         var inputStream = assets.open("expand_list.json")
         var gson :Gson = Gson()
         var reader : Reader = InputStreamReader(inputStream)
-        var elements: Elements = gson.fromJson(reader,Elements())
+        var elements: Elements = gson.fromJson(reader,Elements::class.java)
 
-//        for (elemntsData in  elements.elementsData.size){
-//            elementsData.add(elemntsData)
-//            if (elemntsData.)
-//        }
+
+        if(elements.elementsData !=null && !elements.elementsData.isEmpty()) {
+            for (element: Elements.ElementsData? in elements.elementsData) {
+                element?.let { elementsDataList.add(it) };
+
+                if(element!!.parentId.equals("ROOT",true)){
+                    parentElementsList.add(element);
+                }
+            }
+        }else{}
 
     }catch(e : Exception) {
 
