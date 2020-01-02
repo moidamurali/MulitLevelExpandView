@@ -68,7 +68,7 @@ class ListItemAdapter(val parentItems : ArrayList<Elements.ElementsData>,
                 holder?.disclosureImg!!.getPaddingTop(),
                 holder?.disclosureImg!!.getPaddingRight(),
                 holder?.disclosureImg!!.getPaddingBottom())
-        holder?.contentText!!.setText(element.title)
+                //holder?.contentText!!.setText(element.title)
         if (element.hasChildren && !element.isExpanded) {
             holder.disclosureImg!!.setVisibility(View.VISIBLE)
         } else if (element.hasChildren && element.isExpanded) {

@@ -5,6 +5,7 @@ import android.content.res.AssetManager
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import com.google.gson.Gson
 import com.murali.customexpandable.R
 import java.io.InputStreamReader
@@ -24,7 +25,7 @@ class MainActivity : Activity() {
         mRecyclerView = findViewById(R.id.expList) as RecyclerView;
         loadJsonDataFromAssets()
         val llm = LinearLayoutManager(this)
-        llm.orientation = LinearLayoutManager.HORIZONTAL
+        llm.orientation = LinearLayoutManager.VERTICAL
         mRecyclerView.layoutManager = llm;
        val mListItemAdapter: ListItemAdapter = ListItemAdapter(parentElementsList, elementsDataList, this)
         mRecyclerView.adapter = mListItemAdapter
@@ -50,9 +51,12 @@ class MainActivity : Activity() {
                     }
                 }
             } else {
+                Log.e("---","Else Block")
+
             }
 
         } catch (e: Exception) {
+            e.printStackTrace()
 
         }
     }
